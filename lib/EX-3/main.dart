@@ -14,11 +14,29 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<MyApp> createState() => MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
   int currentIndex = 0;
+
+  void decrease() {
+    setState(() {
+      currentIndex--;
+      if (currentIndex <= 0) {
+        currentIndex = images.length - 1;
+      }
+    });
+  }
+
+  void increase() {
+    setState(() {
+      currentIndex++;
+      if (currentIndex >= images.length) {
+        currentIndex = 0;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,22 +51,14 @@ class _MyAppState extends State<MyApp> {
             IconButton(
               icon: const Icon(Icons.navigate_before),
               tooltip: 'Go to the previous image',
-              onPressed: () => setState(() {
-                currentIndex = currentIndex > 0
-                    ? currentIndex - 1
-                    : images.length - 1;
-              }),
+              onPressed: decrease,
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 0, 80, 0),
               child: IconButton(
                 icon: const Icon(Icons.navigate_next),
                 tooltip: 'Go to the next image',
-                onPressed: () => setState(() {
-                  currentIndex = currentIndex < images.length - 1
-                      ? currentIndex + 1
-                      : 0;
-                }),
+                onPressed: increase,
               ),
             ),
           ],
