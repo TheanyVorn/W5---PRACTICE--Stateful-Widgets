@@ -19,6 +19,7 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   int currentIndex = 0;
+  // length 5, index 4
 
   void decrease() {
     setState(() {
