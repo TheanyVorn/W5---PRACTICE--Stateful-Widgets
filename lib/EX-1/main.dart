@@ -14,35 +14,6 @@ class MyAppState extends State<MyApp> {
   bool isSelected2 = false;
   bool isSelected3 = false;
 
-  // Helper method to build a button
-  Widget buildButton(
-    bool isSelected,
-    VoidCallback onPress,
-    MaterialColor color,
-  ) {
-    return SizedBox(
-      width: 300,
-      height: 100,
-      child: ElevatedButton(
-        onPressed: onPress,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: isSelected ? color[500] : color[50],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
-          ),
-        ),
-        child: Text(
-          isSelected ? "Selected" : "Not Selected",
-          style: TextStyle(
-            fontSize: 20,
-            color: isSelected ? Colors.white : Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -52,22 +23,79 @@ class MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              buildButton(
-                isSelected1,
-                () => setState(() => isSelected1 = !isSelected1),
-                Colors.blue,
+              // Button 1 - Blue
+              SizedBox(
+                width: 300,
+                height: 100,
+                child: ElevatedButton(
+                  onPressed: () => setState(() => isSelected1 = !isSelected1),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: isSelected1
+                        ? Colors.blue[500]
+                        : Colors.blue[50],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                  ),
+                  child: Text(
+                    isSelected1 ? "Selected" : "Not Selected",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: isSelected1 ? Colors.white : Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
               ),
               const SizedBox(height: 20),
-              buildButton(
-                isSelected2,
-                () => setState(() => isSelected2 = !isSelected2),
-                Colors.green,
+              // Button 2 - Green
+              SizedBox(
+                width: 300,
+                height: 100,
+                child: ElevatedButton(
+                  onPressed: () => setState(() => isSelected2 = !isSelected2),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: isSelected2
+                        ? Colors.green[500]
+                        : Colors.green[50],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                  ),
+                  child: Text(
+                    isSelected2 ? "Selected" : "Not Selected",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: isSelected2 ? Colors.white : Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
               ),
               const SizedBox(height: 20),
-              buildButton(
-                isSelected3,
-                () => setState(() => isSelected3 = !isSelected3),
-                Colors.red,
+              // Button 3 - Red
+              SizedBox(
+                width: 300,
+                height: 100,
+                child: ElevatedButton(
+                  onPressed: () => setState(() => isSelected3 = !isSelected3),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: isSelected3
+                        ? Colors.red[500]
+                        : Colors.red[50],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                  ),
+                  child: Text(
+                    isSelected3 ? "Selected" : "Not Selected",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: isSelected3 ? Colors.white : Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

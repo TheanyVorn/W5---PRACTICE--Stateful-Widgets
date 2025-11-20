@@ -42,7 +42,7 @@ class ScoreCard extends StatefulWidget {
 }
 
 class _ScoreCardState extends State<ScoreCard> {
-  int score = 10;
+  int score = 10; // Score out of 10
 
   @override
   Widget build(BuildContext context) {
